@@ -1,0 +1,11 @@
+CLI Commands to paste
+
+To see a list of listening ports:	
+	netstat -an | find /i "listening"
+
+To see a list of established connections:
+	netstat -an | find /i "established"
+	
+To see all open, closing, established and listening ports:
+	netstat -a
+	

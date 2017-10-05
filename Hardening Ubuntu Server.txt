@@ -1,0 +1,107 @@
+Hardening Ubuntu Server
+-----------------------
+
+This information is taken from a number of sources online regarding the hardening of a newly installed Ubuntu Server (16.04 LTS in this case).  The URLs of the various sources will be included where possible.
+
+01. Install a firewall
+    ==================
+Uncomplicated Firewall is a basic firewall that works very well and is very easy to configure.  This section will include information on configuring UFW for use with Samba.
+	
+sudo apt-get install ufw			# I found that it was installed by default...
+sudo ufw allow ssh					# This will allow SSH connections (ie PuTTY)
+sudo ufw allow http					# This will allow web connections
+sudo ufw allow https				# Allow secure web connections
+sudo ufw allow Samba				# This will configure easily for Samba
+sudo ufw enable						# Enables the firewall/will start at boot
+sudo ufw status verbose				# Shows all ports opened in UFW
+
+The log can be checked in /var/log/ufw.log
+
+	
+02. Secure shared memory
+    ====================
+Shared memory can be used in an attack against a running service. Modify /etc/fstab to make it more secure:
+
+sudo nano /etc/fstab
+
+Add the following line and save.  You will need to reboot for this to take effect:
+
+tmpfs	/run/shm	tmpfs	defaults,noexec,nosuid	0	0
+
+
+03. SSH hardening - disable root login and change port
+    ==================================================
+The easiest way to secure SSH is to disable root login and change the port to something other than the standard TCP port 22.
+** Before ** disabling the root login, create a new SSH user and make sure the user belongs to the admin group.
+If you change the SSH port, keep the port number below 1024 as these are privileged ports that can only be opened by root or processes running as root.
+If you change the SSH port, you also have to close port 22 on the firewall and open the new port number you have chosen.
+
+sudo nano /etc/ssh/sshd_config
+
+Change or add the following and save:
+
+Port <ENTER YOUR PORT>
+Protocol 2
+PermitRootLogin no
+DebianBnner no
+
+Restart the SSH server:
+
+sudo service ssh restart
+
+
+04. Harden network with sysctl settings
+    ===================================
+The /etc/sysctl.conf file contains all of the sysctl settings.  Prevents source routing of incoming packets and log malformed IPs.
+
+sudo nano /etc/sysctl.conf
+
+Uncomment or add the following lines:
+# IP Spoofing protection
+net.ipv4.conf.all.rp_filter = 1
+net.ipv4.conf.default.rp_filter = 1
+
+# Ignore ICMP broadcast requests
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+
+# Disable source packet routing
+net.ipv4.conf.all.accept_source_route = 0
+net.ipv6.conf.all.accept_source_route = 0 
+net.ipv4.conf.default.accept_source_route = 0
+net.ipv6.conf.default.accept_source_route = 0
+
+# Ignore send redirects
+net.ipv4.conf.all.send_redirects = 0
+net.ipv4.conf.default.send_redirects = 0
+
+# Block SYN attacks
+net.ipv4.tcp_syncookies = 1
+net.ipv4.tcp_max_syn_backlog = 2048
+net.ipv4.tcp_synack_retries = 2
+net.ipv4.tcp_syn_retries = 5
+
+# Log Martians
+net.ipv4.conf.all.log_martians = 1
+net.ipv4.icmp_ignore_bogus_error_responses = 1
+
+# Ignore ICMP redirects
+net.ipv4.conf.all.accept_redirects = 0
+net.ipv6.conf.all.accept_redirects = 0
+net.ipv4.conf.default.accept_redirects = 0 
+net.ipv6.conf.default.accept_redirects = 0
+
+# Ignore Directed pings
+net.ipv4.icmp_echo_ignore_all = 1
+
+Save and exit, and reload the latest sysctl:
+
+sudo sysctl -p
+
+05. Prevent IP spoofing
+    ===================
+Open the host.conf file and add the following lines:
+
+sudo nano /etc/host.conf		# Open the file
+order bind,hosts
+nospoof on
+

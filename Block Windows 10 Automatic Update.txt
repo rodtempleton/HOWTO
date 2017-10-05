@@ -1,0 +1,23 @@
+Block Windows 10 Automatic Update
+---------------------------------
+
+CREATED: 	11 SEP 09:23 PDT 2015
+MODIFIED: 	14 JUL 12:51 PDT 2017
+
+1. Open Programs and Features
+2. Select "View Installed Updates"
+3. Locate the following updates: 3035583, 2952664 and 3021917
+4. Right-click each update and select "Uninstall"
+5. Select "Restart Later" when prompted
+6. Restart machine AFTER uninstalling each update
+
+Once this is done, you'll need to block the updates from being installed again.
+
+1. Open Windows Update
+2. Choose "Check for Updates".  Windows should find the same ones from above
+3. Click on "Important Update is Available"
+4. Right-click each update and select "Hide Update"
+
+This should prevent your computer from downloading those updates again in the future. Keep in mind that if you want to upgrade to Windows 10 later, you’ll need to unblock these updates. However, this should help prevent Microsoft from downloading several gigabytes of data to your machine when you’re not ready for it.
+
+Source URL: http://lifehacker.com/how-to-block-windows-10-upgrade-downloads-if-youre-not-1730024570

@@ -1,0 +1,14 @@
+How to find the startup time for an app in Windows
+--------------------------------------------------
+
+The Task Manager in Windows 8.1 and Windows 10 has a neat tab called ‘Startup’. This tab lists all apps that launch when you boot your system. It also shows you which apps drag down your system at startup. The tab also lets you enable or disable programs from launching at start-up. It really is one of the best things about the Task Manager for the average user. Under this tab, programs have low, medium, or high impact on start up. If a user thinks their system is taking too long to startup, this tab is the perfect place to investigate which app might be the cause. The tab shows you the impact on startup but you can also find the startup time for an app in this tab. Here’s how.
+
+Open the Task Manager and go to the Startup tab. Right-click any one of the columns in this tab. From the context menu, select ‘CPU at startup’.
+
+This will add a new column to the Startup tab called ‘CPU on startup’. This column will show you how long each app used the CPU when you booted your system. If you click this column’s header, you can sort the apps by lowest or highest startup time.
+
+The time is in milliseconds because that’s the only meaningful unit of time when it comes to a CPU. It goes without saying that an app that used the CPU longer is the high impact app. What this column does is help you make better sense of the ‘high’ and ‘low’ impact reported in the ‘Startup impact’ column for an app.
+
+The question is, what do you do with this information? If you want to speed up startup on your Windows PC, you can set fewer apps to run on startup. Some apps, regardless of their impact on startup need to run when you boot your system. When it comes down to trimming these apps knowing the startup time for an app can help you make a better, more informed decision. It is possible that your more essential apps that are high impact actually use the CPU less than the less essential ones. It makes trimming the startip apps easier.
+
+Source URL: http://www.addictivetips.com/windows-tips/find-the-startup-time-for-an-app-in-windows/

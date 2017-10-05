@@ -1,0 +1,30 @@
+From: Florence Glickman [mailto:fglickman@academyoflearning.com] 
+Sent: February 04, 2015 8:57 AM
+To: All Campuses
+Subject: Process for T2202a being generated from ACME
+
+Campus Franchisees and Campus Directors
+
+We are providing you with the process for preparing campus T2202as being generated from ACME
+
+1)      Go to the Secure Site and download and install the newest version of ACME 209.4
+2)      Go to ACME – press Learn Button at Bottom of screen 
+3)      Choose Reports
+4)      Go to top of screen choose School Financial Tab
+5)      Choose T2202a
+6)      T2202a Filters box will come to Screen - choose the year 2014
+7)      Click Run Report
+8)      At the top of the screen Choose Word – (Under School Financial Tab)
+9)      Save the document in a folder,  example T2202a 2014 – Name of Campus (for record keeping and future access) 
+10)   Choose Destination for the output of the T2202as for the campus
+Suggestion; use My Documents or Desktop
+11)   Hit Ok to Export to MS Word 
+NOTE:  The ACME portion of the work is complete, the rest of the points should be applied  using Windows Explorer
+12)   Open the destination document to see that the information that has been captured by ACME for the T2202a is accurate – if not go back and correct information that reflects on T2202a for 2014 and update saved document
+13)   Print the T2202as
+
+Note:  The student will receive parts 1 and 2, part 3 is kept at the campus (educational institution)
+
+Students are to receive their T2202a no later than Friday, February 27th, 2015.
+
+Note:  Third party funded students do not receive a T2202a

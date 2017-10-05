@@ -1,0 +1,11 @@
+Configuring Typing Trainer
+--------------------------
+Open and close the Student Data Folder on the desktop, or Typing Trainer will not launch correctly
+Launch Typing Trainer from the desktop
+Username: Administrator (case sensitive), password: AOLType23
+Click Create User
+Username is the student's first name
+Password is password
+Click Add Course and select the appropriate course
+
+If this is the student's first keyboarding course, fill out page 9 of the book with the username and password as configured.

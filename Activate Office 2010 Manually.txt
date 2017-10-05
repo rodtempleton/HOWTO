@@ -1,0 +1,24 @@
+Activating Office 2010 Manually
+===============================
+
+CREATED:	29 APR 16:17 PDT 2014
+MODIFIED:	14 JUL 12:49 PDT 2017
+
+When attempting to activate Office 2010, you receive the error message:
+
+* An unspecified error has occurred.  Your request cannot be processed at this time. Please try again later (0x80070190) *
+
+This assumes that  you have opened any of the Office applications and entered the correct product key from File -> Help -> Activate (2V2FK-84TQP-TTYQJ-3D8QM-W7HX2)
+
+Activate by using OSPP.VBS
+--------------------------
+
+Open an administrative command prompt (Start -> All Programs -> Accessorires -> Right click Command Prompt and select 'Run as Administrator')
+
+C:> CD C:\Program Files\Microsoft Office\Office14
+
+C:\Program Files\Microsoft Office\Office14> cscript ospp.vbs /act
+
+This should report that the activation was successful. You can then open any Office program and confirm that Office has been activated.
+
+SOURCE URL: http://blogs.technet.com/b/odsupport/archive/2013/09/11/when-attempting-to-activate-office-2010-receive-error-quot-an-unspecified-error-has-occurred-your-request-cannot-be-processed-at-this-time-please-try-again-later-0x80070190-quot.aspx

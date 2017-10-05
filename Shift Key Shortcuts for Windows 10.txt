@@ -1,0 +1,17 @@
+Shift Key Shortcuts for Windows 10
+----------------------------------
+
+Ctrl-Shift-V: 		Paste without formatting
+Shift-F10: 			Display shortcut menu for the selected item
+Ctrl-Shift-N:		Create new folder in Windows Explorer
+Ctrl-Shift-E:		Display all folders above selected folder in Windows Explorer
+Ctrl-Shift:			Change the keyboard layout when multiple layouts are available
+Ctrl-Shift-Esc:		Open the Task Manager
+Win-Shift-V:		Cycle through notifications in reverse order
+Shift-Click:		Open an app or quickly open another instance
+Ctrl-Shift-Click:	Open an app as an administrator
+Shift-RightClick:	Show the window menu for an app
+Win-Shift-[1-9]:	Start a new instance of the app pinned to the taskbar in the position indicated by the number
+Win-Shift-Ct-[1-9]:	Start a new instance of the app pinned to the taskbar in the position as an administrator
+Win-Shift-Up:		Stretch desktop window to top and bottom of screen
+Win-Shift-Down:		Restore/minimize active desktop windows vertically, maintaining width

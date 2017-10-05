@@ -1,0 +1,99 @@
+Hack your own Linux server
+--------------------------
+
+Passwords are the sole criteria of system Security for most of the system. And when it comes to Linux, if you know the root password you owns the machine. Passwords are a security measure for BIOS, Login, Disk, Application, etc.
+
+Linux is considered to be the most Secure Operating System to be hacked or cracked and in reality it is, still we will be discussing some of the loop-holes and exploits of a Linux System. We will be using CentOS Linux throughout the article as an article to crack our own machine’s security.
+
+Press any key to interrupt the boot, as soon as Linux machine boots and you will get a GRUB menu.
+
+Press ‘e‘ to edit and go to the line starting with kernel (Generally 2nd Line).
+
+Now press ‘e‘ to edit the kernel and add ‘1‘ at the end of line (after one blank space) forcing it to start in single user mode and thus prohibiting it to enter default run-level. Press ‘Enter’ to close the kernel editing and then boot to the altered option. For booting You need to press ‘b‘
+
+Now you are logged in to single-user mode.
+
+Yeah! Now using ‘passwd‘ command we can change the root password. And once you have root password you owns the Linux Machine – Don’t you Remember? You can now switch to graphical screen to edit anything and everything.
+
+Note: In case the above ‘passwd‘ command doesn’t work for you and you didn’t get any output, it simply means that your SELinux is in enforcing mode and you need to disable it first, before proceeding further. Run following command at your prompt.
+
+	setenforce 0
+	
+An then run the ‘passwd‘ command, to change root password. Moreover command.
+
+Switch to X Windows
+
+Use command “init 5” (Fedora Based) systems and “gdm3” (Debian Based) systems.
+
+So was this not a cake-walk to hack a Linux box? Think about the scenario if somebody did this to your server, Panic! Now we will be learning how to safeguard our Linux Machine from being modified using single user mode.
+
+How we breaked into the system? Using Single-user mode. OK, so the loophole here was – logging into single user mode without the need of entering any password.
+
+Fixing this loophole i.e., password protecting the single user mode.
+
+open file “/etc/rc1.d/S99single” in your favourite editor and search for line.
+
+	exec sbin/sulogin
+	
+Just add the following line above it, save and exit.
+
+Now before entering single user mode you will need to provide root password to proceed. Check again trying to enter single user mode after these changing above said file.
+
+Hack Your Linux System Without Using Single User Mode
+OK, so now you will be feeling better that your system is secure. However this is partially true. It is true that your Linux Box can’t be cracked using single user mode but still it can be hacked the other way.
+
+In the above step we modified the kernel to enter single user mode. This time also we will be editing the kernel but with a different parameter, let us see how ?
+
+As a kernel parameter we added ‘1‘ in the above process however now we will be adding ‘init=/bin/bash’ and boot using ‘b‘.
+
+And OOPS you again hacked into your system and the prompt is enough to justify this
+
+Now Trying to change the root password using the same process as stated in the first method using ‘passwd‘ command, we got something like.
+
+Reason and Solution?
+
+Reason: The root (/) partition is mounted Read only. (Hence password was not written).
+Solution: Mount the root (/) partition with read-write permission.
+To mount the root partition with read-write permission. Type the following command exactly.
+
+	# mount -o remout,rw /
+	
+Now again try to change the password of root using ‘passwd‘ command
+
+You hacked into your Linux System once again. Ohhh man is the system so easy to exploit. No! the answer is no. All you need is to configure your system.
+
+All the above two process involved tweaking and passing parameters to kernel. So if we do something to stop kernel tweaking obviously our Linux box would be Secure and not that easy to break. And in order to stop kernel editing at boot we must provide password to boot loader, i.e., password protect the grub (Lilo is another bootloader for Linux but we won’t be discussing it here) boot loader.
+
+Provide encrypted password to bootloader using ‘grub-md5-crypt‘ followed with your password. First encrypt the password
+
+	bash-4.1# grub-md5-crypt
+	Password:
+	Retype password:
+	$1$t8JvC1$8buXiBsfANd79/X3eIp9G1
+	bash-4.1#
+	
+Copy the above encrypted password, exactly as it is and keep it safe we will be using it in our next step. Now open your ‘grub.conf‘ file using your favourite editor (location might be: /etc/grub.conf) and add the line.
+
+	password --md5 $1$t8JvC1$8buXiBsfANd79/X3elp9G1
+	
+Change “$1$t8JvC1$8buXiBsfANd79/X3elp9G1” with your encrypted password which you generated above and copied it safely to some other location.
+
+The “grub.conf” file after inserting the above line, save and exit.
+
+This should now require you to enter the MD5 encrypted password at boot.
+
+Now you would be breathing that you system is fully secure now and not prone to hack, however still the game is not over.
+
+You better know that you can enforce rescue mode to remove and modify the password using a bootable image.
+
+Just put your installation CD/DVD in your drive and select Rescue Installed System or use any other rescue image, you could even use a Live Linux Distro, mount the HDD and edit the ‘grub.conf‘ file to remove password line, reboot and again you are logged in.
+
+Note: In rescue mode Your HDD is mounted under ‘/mnt/sysimage‘.
+
+	# chroot /mnt/sysimage
+	# vi grub.conf (remove the password line)
+	# reboot
+	
+
+
+Created: 12-Apr-2016

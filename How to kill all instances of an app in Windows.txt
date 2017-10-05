@@ -1,0 +1,14 @@
+How to kill all instances of an app in Windows
+----------------------------------------------
+
+You don’t need administrative rights to kill all instances of an app. This effects only the current user. Open the run box with the Win+R keyboard shortcut. Type the following in the run box.
+
+Taskkill /IM %ProgramName% /f
+
+Replace %ProgramName% with the name of the program you want to kill all instances of. For example, if you want to kill Firefox, run the command:
+
+C:> taskkill /IM firefox.exe /f
+
+This works for both desktop and UWP apps. If an app process is hung, this command will kill it as well. There is just one catch with UWP apps. You have to know what the EXE file is called. In most cases, like with Slack, the app EXE will be named after the app. In other cases, such as when you have the Skype Preview app installed, it might be a bit hard to guess the name of the EXE file.
+
+Source URL: http://www.addictivetips.com/windows-tips/kill-all-instances-of-an-app-windows/

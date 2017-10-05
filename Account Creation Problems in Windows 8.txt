@@ -1,0 +1,12 @@
+Account Creation Problems in Windows 8
+--------------------------------------
+CREATED: 19 APR 09:36 PDT 2017
+MODIFIED: 14 JUL 12:48 PDT 2017
+
+When I try to create a new user the Settings app, at the end of the process I get an error that says:
+
+We're sorry, but something went wrong. This user wasn't added to this PC. Code: 0x8007089a
+
+Apparently this comes up if the user tries to create an account with a period in the username.  Part of the problem with this is that when the student is following the instructions in the Windows 8 Level 1 Exam Prep, the instructions ask them to create a local account with a username of EXAMPREP. Unfortunately, if they do this exactly, this is the error message that they will receive.  The period is not meant to be included in the username, but is there as it's a part of basic punctuation.
+
+Have the student create another account without the period, and it should work fine.

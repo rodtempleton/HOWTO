@@ -1,0 +1,9 @@
+Keyboarding Exam Notes
+----------------------
+
+Created: 28 Sept 2017 - 0920PDT (-0700)
+Updated:
+
+Q: Student is enrolled in KBD15E1 and KBD15E2.  Student achieves a speed of 45 WPM in KBD15E1.  Is it necessary for the student to then take KBD15E2?
+
+A: If the course is in the program, you can enter the dates and select the status of "Exemption" because the student is being exempted from taking the next level. You can make notes in the Edit Course Window.

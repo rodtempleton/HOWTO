@@ -1,0 +1,11 @@
+Open Windows Explorer at 'This PC' instead of Quick Access
+
+In the new version of Windows, Explorer has a section called Quick Access, which includes your frequent folders and recent files.  Explorer defaults to opening thi spage when you open a new window.  If you'd rather open the usual "This PC", with just links to your drives and library folders, here's how:
+
+1. Open a new Explorer window (Win+E)
+2. Click View in the Ribbon
+3. Click Options
+4. Under the General tab, next to Open File Explorer, select "This PC"
+5. Click OK
+
+Source URL: http://lifehacker.com/open-windows-explorer-at-this-pc-instead-of-quick-acc-1723582397

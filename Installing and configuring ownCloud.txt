@@ -1,0 +1,40 @@
+Installing and configuring ownCloud
+===================================
+
+Introduction
+------------
+ownCloud is an open source clone of Dropbox or Box that the user maintains on their own server, thereby not tying you in to another company's service.  Users can be given anywhere from 1 - 10GB of disk space, or an unlimited amount for free (unlike a service like Dropbox).
+
+Once up and running, it can be accessed via a browser, or a desktop client, similar to the one that Dropbox uses.  Or you can install an ownCloud client on your smartphone and access files that way.
+
+Installation
+------------
+1. Download the necessary files from owncloud.org/install
+2. Extract the files and copy the owncloud folder to the htdocs directory in the Apache web server
+3. Create a MySQL database (documentation creates a sample one called owncloud_db)
+4. Open a browser and point to http://localhost/owncloud 
+5. Change the database type to MySQL (this will require you to provide creds for the database itself)
+6. Specify the admin account name and password
+
+Notes on SSL
+------------
+Whenever a user logs into ownCloud, it's going to complain about the user using http rather than https.  To eliminate this issue, the simplest way is to create a self-signed SSL certificate at selfsignedcertificate.com and then copy the two files that are generated (url.cert and url.key) to c:/xampp/apache/ssl (it will probably be necessary to create the ssl folder in c:/xampp/apache)
+
+You will then need to go into httpd.conf and configure an SSL Virtual Host entry that looks somewhat like this (actually, it's exactly like this, with the URL changed to your specifications):
+
+<VirtualHost aolrichmond.com:443>
+	ServerName aolrichmond.com
+	DocumentRoot "C:/xampp/htdocs/main"
+	SSLEngine on
+	SSLCertificateKeyFile "C:/xampp/apache/ssl/aolrichmond.com.key"
+	SSLCertificateFile "C:/xampp/apache/ssl/aolrichmond.com.cert"
+	SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
+</VirtualHost>
+
+*** Note that the KeyFile and CertificateFile entries will assume a Linux based system, so rather than /etc/apache/ssl that is part of the default entry, change it to C:/xampp/apache/ssl ***
+
+Stop and restart the Apache service in xampp and try to log into the server from another machine on the LAN, making sure to specify https rather than http.  Firefox should complain about the site not having the certificate.  Click on "I understand the risks" and then click on the "Allow Exception" button.  This will install the certificate on the client machine, and the issue should not come up again.
+
+Also, if you're going to use this on an actual webhost (rather than internally as we do here), just go out and buy an SSL certificate from a Certificate Authority.  Otherwise, no one is really going to trust the site.
+
+Last update: Thu Dec 18 13:54 2014

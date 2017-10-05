@@ -1,0 +1,83 @@
+Excel Keyboard Shortcuts
+------------------------
+
+F4					Toggle absolute and relative references
+Shift F3			Open Insert Function dialog box
+Alt = 				Autosum selected cells
+Ctrl `				Toggle formulas on and off
+Ctrl Shift A		Insert function arguments
+Ctrl Shift Enter	Enter array formula
+F9					Calculate worksheets
+Shift F9			Calculate current worksheet
+Ctrl Alt F9			Calculate all worksheets
+Ctrl Shift U		Expand or collapse the formula bar
+Ctrl A				Display function arguments dialog box
+F11					Create default chart
+Ctrl Shift +		Insert blank cells
+Alt Down			Auto completion options
+Ctrl Shift Space	Select entire table
+Ctrl ,				Copy cell value from cell above
+Ctrl F1				Minimize ribbon
+Alt = 				Autosum - end of range or selected range
+Ctrl 1				Format cells dialog box
+Tab					Next cell
+F7					Spelling check
+
+Word Keyboard Shortcuts
+-----------------------
+
+Ctrl Backspace		Delete previous word
+Shift F3			Capitalization options
+F4					Repeat most recent action
+Ctrl Drag mouse		Copy selected text or object
+F7					Spelling check
+Ctrl Shift D		Insert current date
+Ctrl Shift N		Apply normal paragraph style
+Ctrl Shift C		Copy formatting of selected text
+
+Outlook Keyboard Shortcuts
+--------------------------
+
+Ctrl 1				Switch to mail
+Ctrl 2				Switch to calendar
+Ctrl 3				Switch to contacts
+Ctrl 4				Switch to notes
+Ctrl 5				Switch to tasks
+Ctrl R				Reply to mail
+Ctrl Shift R		Reply to all
+Ctrl F				Forward mail
+Ctrl .				Next message
+Ctrl ,				Previous message
+Ctrl Shift K		Create task
+Ctrl Shift A		Create appointment
+Ctrl Shift Q		Create meeting request
+F9					Check for new mail
+
+PowerPoint Keyboard Shortcuts
+-----------------------------
+
+Ctrl M				Insert slide
+Shift Tab			Select next object on slide
+Ctrl Arrow Keys		Move object pixel by pixel
+Ctrl Shift G		Group object
+Ctrl Shift H		Ungroup object
+F5					Run presentation from first slide
+Backspace			Previous slide
+Slide # Enter		Jump to a particular slide
+End					Jump to last slide
+B					Black out screen / resume slide show
+
+Universal Keyboard Shortcuts
+----------------------------
+
+Ctrl A				Select all
+Ctrl C				Copy
+Ctrl V				Paste
+Ctrl X				Cut
+Ctrl Z				Undo
+Ctrl Y				Redo
+Ctrl P				Print
+Ctrl S				Save
+Alt Tab				Swtich between open windows
+F1					Help
+Ctrl F				Find

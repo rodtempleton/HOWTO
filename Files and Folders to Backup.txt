@@ -1,0 +1,28 @@
+Files and Folders to Backup
+---------------------------
+
+AppData (C:/Users/{Username}/AppData) is used for storing an application's user-specific settings.  Within this folder you have AppData/Roaming (data
+which can move with the user t another system) and AppData/Local (data that is specific to this particular machine).
+
+Do NOT backup the entire AppData folder. Focus only on the applications for which you need the user-specific configurations. Roaming is more important
+than Local, so feel free to ignore the latter.
+
+ProgramData (C:/ProgramData) is used for storing application settings and data that aren't tied to specific users. Don't backup the entire ProgramData
+folder, but go through and save the ones you think you might need in the future.
+
+NOTE that AppData and ProgramData settings and data may only be compatible with certain version of the application. Backing these files up can be good for posterity and reference, but may be buggy if you restore straight from a backup.
+
+Documents (C:/Users/{Username}/Documents is meant to be a place where users can store personal files and documents. Unfortunately, many developers have ignored this and use the folder to store app-related data (e.g. Calibre stores ebook library metadata here).
+
+As with AppData and ProgramData, you may want to go through and back up these files for posterity and reference. For example, VisualStudio uses Documents to store settings and templates, SoftMaker Office uses Documents to store templates and designs, etc.
+
+Email: clients store data in different ways. Outlook stores your emails, calendars, contacts, tasks and notes as a singular PST file which can reside in one of a few locations:
+
+C:/Users/{Username}/AppData/Local/Microsoft/Outlook
+C:/Users/{Username}/Appdata/Roaming/Microsoft/Outlook
+C:/Users/{Username}/Documents/Outlook Files
+
+Do a search for PST files, and generally speaking the largest one (and with a modified date the same as the day you are searching) is the one that you're looking for and should backup.
+
+Music, Pictures, and Videos are all stored in C:/Users/{Username}/Music, C:/Users/{Username}/Pictures, and C:/Users/{Username}/Videos respectively.  These should always be backed up. Some media apps uses these folders for storing local files (iTunes keeps library files in the Music/iTunes subfolder), so while these aren't *essential* to backup, it may be desirable to do so if you don't want to re-download everything.
+

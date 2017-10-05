@@ -1,0 +1,189 @@
++----------------------------------------------+
+| The Completely Random Tech Support Text File |
+| Rod Templeton, MCSE, A+                      |     
+| Version 0.01.01                              |
+| Last update: 2 August 2017                   |
++----------------------------------------------+
+
+Summary: A text file of random stuff taken from my various text files generated in the last few years of providing technical support, and just finding out how to get stuff done.
+
+================================================
+
+Flash sites in the Learning Hub are not always displaying, even though Flash is enabled to always run in Chrome.
+
+1. From Chrome browser, open browser "Settings";
+2. Scroll to the bottom, click "Advance";
+3. Find the "Content Settings", click it;
+4. Click "Flash" menu item;
+5. In the "Allow", click "ADD", and enter "https://my.aolcc.ca:443"  button.
+6. Restart Chrome
+
+================================================
+
+When I try to create a new user the Settings app, at the end of the process I get an error that says:
+
+We're sorry, but something went wrong. This user wasn't added to this PC. Code: 0x8007089a
+
+Apparently this comes up if the user tries to create an account with a period in the username.  Part of the problem with this is that when the student is following the instructions in the Windows 8 Level 1 Exam Prep, the instructions ask them to create a local account with a username of EXAMPREP. Unfortunately, if they do this exactly, this is the error message that they will receive.  The period is not meant to be included in the username, but is there as it's a part of basic punctuation.
+
+Have the student create another account without the period, and it should work fine.
+
+================================================
+
+CLI Commands to paste
+
+To see a list of listening ports:	
+	netstat -an | find /i "listening"
+
+To see a list of established connections:
+	netstat -an | find /i "established"
+	
+To see all open, closing, established and listening ports:
+	netstat -a
+
+================================================
+
+Configuring Typing Trainer
+
+Open and close the Student Data Folder on the desktop, or Typing Trainer will not launch correctly
+Launch Typing Trainer from the desktop
+Username: Administrator (case sensitive), password: AOLType23
+Click Create User
+Username is the student's firstname.lastname (ie Rod.Templeton)
+Password is their contract number
+Click Add Course and select the appropriate course
+
+If this is the student's first keyboarding course, fill out page 9 of the book with the username and password as configured.
+
+================================================
+
+Crack a Windows 7/8.1/10 machine if you don't know the password
+
+Rather a simple way to get around a changed Windows password.  For example, someone changes the password, and it's the only account on the machine.
+
+1. Boot the machine with a Windows DVD (32-bit requires a 32-bit disk, and x64 requires an x64 disk)
+2. Click Next (no, you're not going to install the OS...)
+3. Click Repair Your Computer
+4. Note the drive letter of the Recovery partition (normally this is D:).  If there is no recovery partition, simply substitute C: for D: below
+5. Click on Command Prompt
+6. Enter the following two commands:
+
+	D:> copy d:\windows\system32\utilman.exe d:\
+	 1 file copied.
+	
+	D:> copy d:\windows\system32\cmd.exe d:\windows\system32\utilman.exe
+	 Overwrite existing file? (Yes/No/All): Yes
+	 
+7. Restart the machine and remove the DVD
+8. When the machine boots up and comes up to the login screen, click on Ease of Access in the lower left hand corner, which has just been replaced with cmd.exe.  A DOS box should appear
+9. Enter the following to change the password:
+
+	net user {Username} {password}  (whatever you'd like the new password to be)
+
+10. Close the DOS box
+11. Enter the new password you've chosen as the user's password, and you should be into the machine
+
+Adding a new user from the command line
+---------------------------------------
+net user username password /ADD
+(for example:  net user Rod newpassword /ADD)
+
+After creating this user, it will be necessary to reboot the machine in order to have the new account option available.  Note that this user will only be a Standard User account.  It will still be necessary to add them to the Administrators group to give those privileges to the account.
+
+================================================
+
+From: Florence Glickman [mailto:fglickman@academyoflearning.com] 
+Sent: February 04, 2015 8:57 AM
+To: All Campuses
+Subject: Process for T2202a being generated from ACME
+
+Campus Franchisees and Campus Directors
+
+We are providing you with the process for preparing campus T2202as being generated from ACME
+
+1) Go to the Secure Site and download and install the newest version of ACME 209.4
+2) Go to ACME – press Learn Button at Bottom of screen 
+3) Choose Reports
+4) Go to top of screen choose School Financial Tab
+5) Choose T2202a
+6) T2202a Filters box will come to Screen - choose the year 2014
+7) Click Run Report
+8) At the top of the screen Choose Word – (Under School Financial Tab)
+9) Save the document in a folder,  example T2202a 2014 – Name of Campus (for record keeping and future access) 
+10)Choose Destination for the output of the T2202as for the campus
+Suggestion; use My Documents or Desktop
+11)Hit Ok to Export to MS Word 
+NOTE:  The ACME portion of the work is complete, the rest of the points should be applied  using Windows Explorer
+12)Open the destination document to see that the information that has been captured by ACME for the T2202a is accurate – if not go back and correct information that reflects on T2202a for 2014 and update saved document
+13)Print the T2202as
+
+Note:  The student will receive parts 1 and 2, part 3 is kept at the campus (educational institution)
+
+Students are to receive their T2202a no later than the last day of February
+
+Note:  Third party funded students do not receive a T2202a
+
+================================================
+
+How to find the startup time for an app in Windows
+
+The Task Manager in Windows 8.1 and Windows 10 has a neat tab called ‘Startup’. This tab lists all apps that launch when you boot your system. It also shows you which apps drag down your system at startup. The tab also lets you enable or disable programs from launching at start-up. It really is one of the best things about the Task Manager for the average user. Under this tab, programs have low, medium, or high impact on start up. If a user thinks their system is taking too long to startup, this tab is the perfect place to investigate which app might be the cause. The tab shows you the impact on startup but you can also find the startup time for an app in this tab. Here’s how.
+
+Open the Task Manager and go to the Startup tab. Right-click any one of the columns in this tab. From the context menu, select ‘CPU at startup’.
+
+This will add a new column to the Startup tab called ‘CPU on startup’. This column will show you how long each app used the CPU when you booted your system. If you click this column’s header, you can sort the apps by lowest or highest startup time.
+
+The time is in milliseconds because that’s the only meaningful unit of time when it comes to a CPU. It goes without saying that an app that used the CPU longer is the high impact app. What this column does is help you make better sense of the ‘high’ and ‘low’ impact reported in the ‘Startup impact’ column for an app.
+
+The question is, what do you do with this information? If you want to speed up startup on your Windows PC, you can set fewer apps to run on startup. Some apps, regardless of their impact on startup need to run when you boot your system. When it comes down to trimming these apps knowing the startup time for an app can help you make a better, more informed decision. It is possible that your more essential apps that are high impact actually use the CPU less than the less essential ones. It makes trimming the startip apps easier.
+
+Source URL: http://www.addictivetips.com/windows-tips/find-the-startup-time-for-an-app-in-windows/
+
+================================================
+
+How to kill all instances of an app in Windows
+
+You don’t need administrative rights to kill all instances of an app. This effects only the current user. Open the run box with the Win+R keyboard shortcut. Type the following in the run box.
+
+Taskkill /IM %ProgramName% /f
+
+Replace %ProgramName% with the name of the program you want to kill all instances of. For example, if you want to kill Firefox, run the command:
+
+C:> taskkill /IM firefox.exe /f
+
+This works for both desktop and UWP apps. If an app process is hung, this command will kill it as well. There is just one catch with UWP apps. You have to know what the EXE file is called. In most cases, like with Slack, the app EXE will be named after the app. In other cases, such as when you have the Skype Preview app installed, it might be a bit hard to guess the name of the EXE file.
+
+Source URL: http://www.addictivetips.com/windows-tips/kill-all-instances-of-an-app-windows/
+
+================================================
+
+Make Windows 8/10 save files locally rather than to OneDrive
+
+Whenever you save files on a Windows 8.1 or Windows 10 machine, if the machine is logged in with a Microsoft account, it will want to save files
+OneDrive, rather than to the local machine.  This is problematic in the Windows 8.1 Level 1 course which invokes the 'Copy To' command.  The user is
+told to copy the files to 'Documents', but it actually save in 'OneDrive -> Documents'.
+
+USING GPEDIT
+============
+Hit WIN+R to bring up the run command and enter gpedit.msc.  This will bring up the local group policy editor
+navigate to Computer Configuration -> Admin Templates -> Windows Components -> OneDrive
+Locate the setting called 'Save Documents and Pictures to OneDrive by default' (which should be showing as 'not configured').  
+Double click on it to open the options, click on Disabled -> Apply -> OK
+
+Close the local group policy editor and reboot to make the changes effective.
+
+
+USING REGEDIT
+=============
+If you don't have access to the group policy editor, you can use regedit:
+hit WIN+R to bring up the run command and enter regedit.  This will bring up the registry editor
+navigate to:
+	HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Onedrive
+
+In the right hand pane, right-click and select new -> dword value.  Name the newly created dword as: disablelibrariesdefaulttoskydrive.  Double Click on this new dword
+Input the value data as  '1'.  Click ok
+
+Close the registry editor and reboot the machine to make the changes effective
+
+================================================
+

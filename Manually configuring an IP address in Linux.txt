@@ -1,0 +1,21 @@
+Manually configuring an IP address in Linux
+-------------------------------------------
+
+Open the interface file:
+	sudo nano /etc/network/interfaces
+
+
+For the primary interface, which is usually eth0, you will see these lines:
+	auto eth0
+	iface eth0 inet dhcp
+
+This indicates that DHCP is currently being used.  We're going to change DHCP to static and then there are a number of options to be added. 
+
+	auto eth0
+	iface eth0 inet static
+		address 192.168.1.36
+		netmask 255.255.255.0
+		gateway 192.168.1.254
+		dns-nameservers 4.2.2.2 8.8.8.8
+
+After this restart the interfaces, or just reboot the server

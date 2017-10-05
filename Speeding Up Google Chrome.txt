@@ -1,0 +1,39 @@
+C 150417 0924PDT
+U
+
+Speeding Up Google Chrome
+-------------------------
+
+Unnecessary plug-ins, extensions and even browsing data can make Chrome run more slowly than it did when it was first installed.  This file will explain how to disable plug-ins and extensions, and clear browsing data in order to speed up Chrome and prevent it from crashing less.
+
+Disable Plug-ins
+===============
+By default, when you install Chrome, many unnecessary plugins are installed and enabled.  These can include Flash, Java, Silverlight, or Windows Media files, but most of them aren't important to daily browsing.  Plugins can slow down the performance of Chrome (or Firefox for that matter), but you can disable plug-ins that you're not using regularly.
+
+To do this, enter chrome://plugins or about://plugins in Chrome's address bar and hit Enter.
+
+A list of the installed plug-ins displays on the current bat.  Scroll through the list and click the Disable link for each plug-in you feel that you don't need.
+
+NOTE: You can safely disable every plug-in, but you may want to keep Flash enabled, as a LOT of sites use Flash to display menus, show video content, etc.  Also, if you watch Netflix in Chrome, you need to keep the Silverlight plugin enabled.  You can always re-enable a plugin if you need to.
+
+Also note that plugins cannot be deleted, only disabled.  However if you uninstall an extension which installed its own plug-in, then the plugin will be deleted along with the extension.
+
+Disable Extensions
+==================
+Extensions are small programs available in the Chrome Web Store that add extra features and functionality to Chrome. They can be very useful, but if you end up with a lot of extensions installed, the browser’s speed may be negatively affected. You can easily disable extensions without uninstalling them to gain some speed.
+
+Clear Browsing Data
+===================
+As you browse the web, Chrome’s history database collects URLs and cached texts for websites you’ve visited, your download history, cookies, and other website and plugin data. While the point of the history and cache database are to speed up your computer by caching things locally instead of having to download every time, sometimes the history database can become very large and may slow down Chrome.
+
+NOTE: You shouldn’t clear your history regularly for speed purposes, as that defeats the purpose of a local cache. You can certainly clear it for privacy reasons though, or if you are having an issue with a particular site.
+
+There are several ways to clear your browsing history, including clearing your entire history and clearing the history for specific sites.
+
+Clear Your Entire Browsing History
+----------------------------------
+To clear your entire browsing history, click the wrench icon on the toolbar and select Tools -> Clear browsing data from the drop-down menu.
+
+NOTE: Clearing your entire browsing history prevents matches from displaying when you start typing URLs in the address bar.
+
+=== EOF ===
