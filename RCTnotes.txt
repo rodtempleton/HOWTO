@@ -1,0 +1,21 @@
+RCT Notes
+---------
+
+- players should ALWAYS set the stall prices so that they make at least $1 profit out of any article they sell. Anything sold for less than that is basically given away
+- the park entrance should always have a toilet area, an Information kiosk, a food and drinks stall and a couple of flat rides set to free admission (these retain guests a little longer and set an entertainer there. Guest will leave the park happier
+- toilets should always be set to $0.20 so that they not only cover their costs, but make a profit
+- as soon as you determine that 50 guests need to use the washroom (using the Grouped Thoughts panel), build a washroom slab. It is always better to have too many than not enough
+- general rule with pay per ride parks is to set the price of tracked rides up to the price of their excitement rating
+- as rides age, they become less disireable and often force the player to drop the ticket prices for some older attractions despite the excitement rating
+- walking guests will make a random decision at each junction, however they are slightly more likely to continue straight
+- as a quirk of the system, a ride entrance jointed at a 90 degree angle (or "T" intersection) to a path is less likely to attract guest than those joined straight on
+- grid systems are the most efficient way to prvent guest for getting lost and should be preferred to tree systems at all costs
+- guests cannot turn around on a straight signle section - they require a junction or dead-end to do so
+- paths wider than one tile should be avoided as guests are likely to end up walking in circles (considering each tile of a wide path as a junction) and getting lost
+- rides with covered cars or that have at least 40% of their track constructed underground will bypass the rain drain effect and keeep attracting guests when it is raining
+- tracked rides that have a ride time of 5 minutes or longer will have  anegative impact as guest will want to get off the ride
+- broken-down rides also aggravate this issue so it is important that players hire enough mechanics have them patrol properly
+- lines should at least be long enough to hold enough guests for one car/train but never exceed a length of 8 minutes wait time as this will displease the guests 
+- guest will only carry ONE food or drink item at a time and have to consume it before buying another one. This means that there is NO ADVANTAGE to to build food court areas in a park
+- if guests consider a ride "a really good value" then the price is low enough for the player to consider raising it a bit for a nice little profit
+- mechanics need to cover around 4 ride exits located as close as possible for maximum efficiency
