@@ -1,6 +1,8 @@
 RCT Notes
 ---------
 
+Last updated: 20 May 2020
+
 - players should ALWAYS set the stall prices so that they make at least $1 profit out of any article they sell. Anything sold for less than that is basically given away
 - the park entrance should always have a toilet area, an Information kiosk, a food and drinks stall and a couple of flat rides set to free admission (these retain guests a little longer and set an entertainer there. Guest will leave the park happier
 - toilets should always be set to $0.20 so that they not only cover their costs, but make a profit
