@@ -1,0 +1,128 @@
+Pi and Linux Notes (bash command line video is at 22 minutes)
+------------------
+Version 1.07.16-3
+
+I.	General Usage
+	-------------
+01 How do I determine which shell is in use?
+	ps -p $$
+		The default shell is bash
+02 How do I determine how cool the fan is keeping the Pi?
+	vcgencmd measure_temp
+		This will show the current temperature
+	watch vcgencmd measure_temp 
+		This will keep a running window that updates the current temperature every 2 seconds
+03 How do I create an alias?
+	alias fan="vcgencmd measure_temp"
+		Instead of the full command, just enter 'fan'
+04 What aliases do I have configured?
+	Simply enter 'alias' (no quotes) and hit Enter. Lists all aliases
+05 How do I create a file of aliases?
+	pico .bash_aliases
+		Enter the new alias here and save the file on exit
+06 Can I relaunch .bash_aliases without having to close and re-open the SSH session?
+	exec bash
+		This will relaunch bash, including .bashrc and .bash_aliases
+07 How do I update and upgrade my system?
+	sudo apt update
+	sudo apt full-upgrade 
+	sudo apt update && sudo apt full-upgrade (this will complete both in one line)
+		'full-upgrade' should be used as it also picks up any dependency changes that may have been made
+08 I'm running out of space on my SD card
+	df -h
+		This shows (in human readable form) how much space is actually left on the SD card
+	sudo apt clean
+		Download package (.deb) files are stored in /var/cache/apt/archives.  This will remove these to free up space
+14 How do I determine what the name of a package I want to uninstall actually is?
+	If trying to remove Teamviewer, for example:
+	dpkg -l | grep teamviewer	(small L after the dash)
+		This will list teamviewer-host which should then be removed with:
+	sudo apt remove teamviewer-host
+15 Update no longer completes as a repository I no longer need/use is no longer signed.  How do I remove the repository from apt-update?
+	One of two things may be required:
+		sudo pico /etc/apt/sources.list and remove the entry if it is listed there.  If it is NOT listed, then use the following:
+			cd /etc/apt/sources.list.d
+			sudo rm package_to_remove.list
+16 Is there an easier way to configure a new SD card when imaging it?
+	CTRL+SHIFT+X when Imager is open will allow you to preconfigure a range of options, such as enabling SSH, setting wireless
+	info, disabling overscan, and setting a hostname for the Pi
+17 How do I configure the Pi as easily as possible?
+	sudo raspi-config will allow you to make multiple changes as long as you're able to login to the Pi
+18 Is there a way to tell what other Wifi might be causing issues with my network?
+	sudo apt install wavemon
+	sudo wavemon
+		This will show signal strength/performance reports for your wireless network. Additional info:
+	F2 shows a level histogram
+	F3 runs a scan window to show all available Wifi networks that the Pi is able to see (2.4 and 5GHz) along with signal strength
+	and channel that the other access points are running on
+19 What pages are good for troubleshooting help/advice?
+	Help, resources and technical documents: https://magpi.cc/forumhelp
+	Getting started: https://magpi.cc/forumgetstarted
+	Boot problems: https://magpi.cc/forumbootproblems
+	Common pitfalls for beginners: https://magpi.cc/forumpitfalls
+	Configuration: https://magpi.cc/configuration
+	Documentation: https://magpi.cc/documentation
+20 How do I install a package with dpkg?
+	dpkg -i name_of_the_package.deb
+21 What do I need to get my wireless USB keyboard supported?
+	sudo apt get install solaar
+22 What's the easiest way to kill an unresponsive window
+	Launch a terminal (CTRL-ALT-T) and enter xkill
+	Click on offending window, which is immediately closed
+23 Is there a Winamp-like clone for Pi?
+	QMMP works just fine.  Hit 'U' to open a streaming URL and enter the ScanBC URL there
+24 How do I use cmake?
+	Unzip the source code to build and enter 'sudo mkdir build && cd build' 
+	Enter 'cmake ..' - this will build the code in the directory above and put it in the build folder
+	Enter 'make'
+	Enter 'make install'
+25 Is there a way to create a directory and then a directory inside that in one step?
+	mkdir -v -p src/build
+		This would create /home/{user}/src and /home/{user}/src/build
+26 Can you create two directories at once?
+	'mkdir bin src' would create both 'bin' and 'src' in the current directory
+27 What key commands are used for 'less'
+	The space key functions as PageDown, the 'b' key as 'PageUp' and 'q' quits the application
+	less -N filename will display line numbers
+28 Can I list the contents of any directory from anywhere else?
+	'ls Documents' would list the contents of the Documents directory from anywhere in the filesystem
+29 Is there an easy way to customize the themes used on my Pi?
+	Use 'lxappearance' in the terminal. This is hidden by default from the main menu, but can also be enabled in the Main Menu Editor
+	option from the main menu so that it's not necessary to run lxappearance each time
+30 Are there any customizations for top to get more system information?
+	Use 'htop' in the terminal.  This will do everthing that top does by default, and will also show the load on each of the 4 cores in the CPU
+
+
+II.	Web Administration
+	------------------
+09 How can I install Apache on my system?
+	sudo apt install apache2 -y
+		Pages are stored in /var/www/html
+10 I've installed Apache. How do I make changes to /var/www/html without modifying permissions each time?
+	sudo usermod -a -G www-data pi (or whatever username)
+	sudo chown -R -f www-data:www-data /var/www/html
+		Once you've run these commands, logout and back in for changes to take effect
+11 How do I install PHP?
+	sudo apt install php7.3 libapache2-mod-php7.3 php7.3-mbstring php7.3-mysql php7.3-curl php7.3-gd php7.3-zip -y
+12 How do I create a virtual host in Apache?
+	cd /etc/apache2/sites-available
+	sudo pico rod.pi.conf
+		<VirtualHost *:80>
+			ServerName rod.pi
+			ServerAlias www.rod.pi
+			DocumentRoot /var/www/rod.pi/public_html
+			ErrorLog ${APACHE_LOG_DIR}/rod.pi_error.log
+			CustomLog ${APACHE_LOG_DIR}/rod.pi_access.log combined
+		</VirtualHost>
+13 Configuring static IP addresses for both eth0 and wlan0 
+	sudo pico /etc/dhcpcd.conf (add to bottom of file)
+		interface eth0
+		static ip_address=192.168.1.25/24
+		static routers=192.168.1.254
+		static domain_name_servers=8.8.8.8
+		
+		interface wlan0
+		static ip_address=192.168.1.26/24
+		static routers=192.168.1.254
+		static domain_name_servers=8.8.8.8
+	After this, reboot the machine with 'sudo shutdown -r now' or 'sudo reboot'
